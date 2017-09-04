@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+GOOGLE_MAPS_API_KEY = 'AIzaSyDJLjl3mXbmzBG9Fyk24qkH1m_8y4A1o-0'
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bot'
 ]
 
 MIDDLEWARE = [
