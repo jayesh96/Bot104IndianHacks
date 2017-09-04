@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 # Create your views here.
-from .models import Hospital
+from .models import Hospital,HospitalBeds,HospitalRating
 
 def HospitalList(request):
 	h_list = []
@@ -10,11 +10,17 @@ def HospitalList(request):
 	for i in obj:
 
 		a = {}
-		a['hospital_name'] = i.title
+		obj_bed = HospitalBeds.objects.get(title_id=i)
+		print i
+		
+		a['avg_rating'] = i.avg_rating
+		a['room_type_a'] = obj_bed.room_type_a
+		a['room_type_b'] = obj_bed.room_type_b
 		a['address'] = i.address
 		a['pincode'] = i.pincode
 		a['contact'] = i.contact
-		a['avg_rating'] = i.avg_rating
+		a['hospital_name'] = i.title
+
 		h_list.append(a)
 
 	print (h_list)
