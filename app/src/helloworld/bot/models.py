@@ -11,7 +11,7 @@ class Hospital(models.Model):
 	address = models.CharField(max_length=200,null=False, blank=False) 
 	pincode = models.IntegerField(null=False, blank=False)
 	contact = models.CharField(max_length=12,null=False, blank=False)
-	avg_rating = models.DecimalField(max_digits=2,decimal_places=2,null=False, blank=False,default=0.00)
+	avg_rating = models.DecimalField(max_digits=3,decimal_places=2,null=False, blank=False,default=0.00)
 
 
 	class Meta:
