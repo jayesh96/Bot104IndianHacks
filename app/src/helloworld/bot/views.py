@@ -10,9 +10,7 @@ def HospitalList(request):
 	for i in obj:
 
 		a = {}
-		obj_bed = HospitalBeds.objects.get(title_id=i)
-		print i
-		
+		obj_bed = HospitalBeds.objects.get(title_id=i)		
 		a['avg_rating'] = i.avg_rating
 		a['room_type_a'] = obj_bed.room_type_a
 		a['room_type_b'] = obj_bed.room_type_b
