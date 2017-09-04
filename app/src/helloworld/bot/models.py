@@ -66,7 +66,7 @@ class HospitalRating(models.Model):
 def hospital_rating_update(sender, instance, **kwargs):
 	obj = Hospital.objects.get(title=instance)
 	obj.avg_rating = (int(instance.google_rating)+int(instance.user_rating))/2
-	print obj.avg_rating
+	print (obj.avg_rating)
 	obj.save()
 
 post_save.connect(hospital_rating_update, sender=HospitalRating)
