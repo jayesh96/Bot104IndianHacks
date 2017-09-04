@@ -48,7 +48,7 @@ class HospitalBeds(models.Model):
 
 class HospitalRating(models.Model):
 	title = models.ForeignKey(Hospital,on_delete=models.CASCADE)
-	google_rating = models.DecimalField(max_digits=2,decimal_places=2)
+	google_rating = models.DecimalField(max_digits=3,decimal_places=2)
 	user_rating = models.IntegerField()
 
 
