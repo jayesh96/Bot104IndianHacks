@@ -73,24 +73,24 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'NAME': 'hasuradb',
-         'USER': 'admin',
-         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-         'HOST': os.environ.get('POSTGRES_HOST'),
-         'PORT': '5432',
-     }
- }
-
-
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(os.path.dirname(BASE_DIR), 'db.sqlite3'),
-#     }
-# }
+#      'default': {
+#          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#          'NAME': 'hasuradb',
+#          'USER': 'admin',
+#          'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+#          'HOST': os.environ.get('POSTGRES_HOST'),
+#          'PORT': '5432',
+#      }
+#  }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(os.path.dirname(BASE_DIR), 'db.sqlite3'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -128,4 +128,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_root')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static_dev"),
+)
 STATIC_URL = '/static/'
