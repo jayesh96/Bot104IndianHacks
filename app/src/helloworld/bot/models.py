@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.db.models.signals import post_save
 
 # Create your models here.
 
@@ -61,3 +62,12 @@ class HospitalRating(models.Model):
 
 	def __str__(self):
 		return str(self.title)
+
+def hospital_rating_update(sender, instance, **kwargs):
+	obj = Hospital.objects.get(title=instance)
+	obj.avg_rating = (int(instance.google_rating)+int(instance.user_rating))/2
+	print obj.avg_rating
+	obj.save()
+
+post_save.connect(hospital_rating_update, sender=HospitalRating)
+
