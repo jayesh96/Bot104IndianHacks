@@ -12,7 +12,7 @@ def index(request):
 
 	hospital = Hospital.objects.get(title = request.GET.get('hospital'))
 	obj = HospitalBeds.objects.get(title_id=hospital.id)
-	print obj
+	print (obj)
 	context = {
 			"hospital":hospital,
 			"hospital_details":obj
