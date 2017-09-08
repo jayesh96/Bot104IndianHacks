@@ -71,3 +71,20 @@ def hospital_rating_update(sender, instance, **kwargs):
 
 post_save.connect(hospital_rating_update, sender=HospitalRating)
 
+
+
+class HospitalBooking(models.Model):
+	title = models.ForeignKey(Hospital,on_delete=models.CASCADE)
+	bed_type = models.CharField(max_length=2,null=False, blank=False)
+
+	class Meta:
+		verbose_name = 'Hospital Booking'
+		verbose_name_plural = 'Hospital Bookings'
+
+	def __unicode__(self):
+		return str(self.title)
+
+	def __str__(self):
+		return str(self.title)
+
+
