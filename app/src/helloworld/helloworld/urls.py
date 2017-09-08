@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from helloworld import views
-from bot.views import HospitalList
+from bot.views import HospitalList,HospitalBookingNotify
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hlist/', HospitalList, name='hospitals'),
+    url(r'^hospitalnotify/', HospitalBookingNotify, name='hospitals_notify'),
     url(r'^$', views.index),
 ]
 if settings.DEBUG:

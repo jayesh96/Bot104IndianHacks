@@ -2,11 +2,11 @@ from django.shortcuts import render
 from django.http import JsonResponse
 
 # Create your views here.
-from .models import Hospital,HospitalBeds,HospitalRating
+from .models import Hospital,HospitalBeds,HospitalRating,HospitalBooking
 
 def HospitalList(request):
 	h_list = []
-	obj = Hospital.objects.all()
+	obj = Hospital.objects.filter(pincode=pincode)
 	for i in obj:
 
 		a = {}
@@ -26,3 +26,13 @@ def HospitalList(request):
 
 
 	return JsonResponse(h_list,safe=False,json_dumps_params={'indent': 2})
+
+
+
+def HospitalBookingNotify(request):
+	context = {}
+	print request.GET
+	obj = HospitalBooking.objects.all()
+	print(obj.count())
+
+	return render(request,"hospital-dashboard.html",{"count":obj.count()})
