@@ -67,12 +67,12 @@
         <div class="demo-blog__posts mdl-grid">
           <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
             <div class="mdl-card__media mdl-color-text--grey-50">
-              <h3 style="color:red; background-color:rgba(0,0,0,0.6); "><a href="entry.html">Hospital Name</a></h3>
+              <h3 style="color:red; background-color:rgba(0,0,0,0.6); "><a href="entry.html">{{ hospital|title }}</a></h3>
             </div>
             <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
               <div>
-                <strong>Address</strong>
-                <span>Phone No</span>
+                <strong>{{ hospital|address }}</strong>
+                <span>{{ hospital|contact }}</span>
               </div>
             </div>
           </div>
@@ -107,7 +107,19 @@
               <div class="minilogo"></div>
               <div>
                 <strong>The Newist</strong>
-                <span>2 days ago</span>
+                <form method="POST">{% csrf_token %}
+					<input type="hidden" name="hospital_name" value="{{ hospital.title }}">
+					<input type="hidden" name="bed" value="A">
+					<input type="submit" name="bed_type_A">Book A Normal Room
+					<br/>
+					</form>
+
+					<form method="POST">{% csrf_token %}
+					<input type="hidden" name="hospital_name" value="{{ hospital.title }}">
+					<input type="hidden" name="bed" value="B">
+					<input type="submit">Book A Deluxe Room
+					<br/>
+				</form>
               </div>
             </div>
           </div>
