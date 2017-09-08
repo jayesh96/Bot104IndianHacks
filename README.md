@@ -15,3 +15,14 @@ Backend Dashboard:
 https://circumspect87.circumspect87.hasura-app.io/admin/
 username:test
 password:pass1234
+
+
+
+Key Features:
+1) A Messenger BOT
+2) Bed Booking 
+3) Bed Tracking
+4) Dashboard for Hospital
+5) Use of Hasura and IBM Services
+6) Data Analysis
+6) Structured Messages
